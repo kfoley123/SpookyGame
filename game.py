@@ -1,3 +1,4 @@
 characterName = ""
 characterName = input("choose a character name: ")
-print(characterName) 
+print("You have chosen the name " + characterName) 
+
