@@ -10,7 +10,7 @@ characterName = input("choose a character name: ")
 print("You have chosen the name " + characterName) 
 
 lives = 5
-while lives > 0:
+while(lives > 0):
 
     playerChoiceOne = input(characterName + " comes to a fork in the road. Choose left or right: ")
     if(playerChoiceOne.lower() == "left"):
