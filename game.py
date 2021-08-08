@@ -5,6 +5,11 @@ print(gameTitle)
 print("")
 print("=========================================================")
 
+
+def stripWhiteSpace(inputString):
+    outputString = inputString.strip()
+    return outputString
+
 characterName = ""
 characterName = input("choose a character name: ")
 print("You have chosen the name " + characterName) 
@@ -13,6 +18,7 @@ lives = 5
 while(lives > 0):
 
     playerChoiceOne = input(characterName + " comes to a fork in the road. Choose left or right: ")
+    playerChoiceOne = stripWhiteSpace(playerChoiceOne)
     if(playerChoiceOne.lower() == "left"):
         print("")
         print(characterName + " has died")
@@ -25,6 +31,7 @@ while(lives > 0):
         invalidinput = True
         while(invalidinput):
             playerChoiceTwo = input("You see a chest on the side of the path. Do you open it? ")
+            playerChoiceTwo = stripWhiteSpace(playerChoiceTwo)
             if(playerChoiceTwo.lower() == "yes" or playerChoiceTwo.lower() == "yeah" or playerChoiceTwo.lower() == "y"):
                 print("The chest is full of fangs that bite down on your arm, servering it. You bleed to death!")
                 print("")
@@ -45,3 +52,5 @@ while(lives > 0):
         print("that is not a vaild option")
 
 print("GAME OVER")
+
+
