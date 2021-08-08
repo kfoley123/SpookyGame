@@ -10,9 +10,12 @@ def stripWhiteSpace(inputString):
     outputString = inputString.strip()
     return outputString
 
+partyMonk = False
+
 characterName = ""
 characterName = input("choose a character name: ")
 print("You have chosen the name " + characterName) 
+print("")
 
 lives = 5
 while(lives > 0):
@@ -43,9 +46,22 @@ while(lives > 0):
                 invalidinput = False
             elif(playerChoiceTwo.lower() == "no" or playerChoiceTwo.lower() == "nope" or playerChoiceTwo.lower() == "n"):
                 print(characterName + " noticed that the chest is a mimic and would have eaten you. Great job! You keep walking down the path ")
-                invalidinput = False
+                invalidinput = True
+                while(invalidinput):
+                    playerChoiceThree = input("You see an old monk waiting by the side of the road. He asks if he can come with you. Do you accept? Yes or no? ")
+                    playerChoiceThree = stripWhiteSpace(playerChoiceThree)
+                    if(playerChoiceThree.lower() == "yes" or playerChoiceThree.lower() == "yeah" or playerChoiceThree.lower() == "y"):
+                        print("The monk thanks you for your kindness and follows you down the road")
+                        partyMonk = True
+                        invalidinput = False
+                    elif(playerChoiceThree.lower() == "no" or playerChoiceThree.lower() == "nope" or playerChoiceThree.lower() == "n"):
+                        print("The monk warns you that it's dangerous to go alone but you as you continue to walk he is quickly out of sight")
+                        invalidinput = False
+                    else:
+                        print("that is not a vaild option")
             else: 
                 print("that is not a valid option")
+
 
 
     else: 
