@@ -59,6 +59,18 @@ while(lives > 0):
                         invalidinput = False
                     else:
                         print("that is not a vaild option")
+                if(partyMonk):
+                    playerChoiceFour = input("You come up to a bridge over a great chasm. Becuase its narrow you can only go single file. The monk ushers you ahead of him. Do you go first?")
+                    playerChoiceFour = formatAnswerString(playerChoiceFour)
+                    if(playerChoiceFour == "yes" or playerChoiceFour == "yeah" or playerChoiceFour == "y"):
+                        print("you see an arrow flying towards you and manage to block it with your shield")
+                    elif(playerChoiceFour == "no" or playerChoiceFour == "nope" or playerChoiceFour == "n"):
+                        print("You see an arrow coming towards the monk and before you can warn him it pierces his chest and he falls off the side of the bridge.")
+                        partyMonk = False
+                    
+                    
+                else:
+                    print("You come up to a bridge over a great chasm. you cross the bridge")
             else: 
                 print("that is not a valid option")
 
