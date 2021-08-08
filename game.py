@@ -6,9 +6,9 @@ print("")
 print("=========================================================")
 
 
-def stripWhiteSpace(inputString):
+def formatAnswerString(inputString):
     outputString = inputString.strip()
-    return outputString
+    return outputString.lower()
 
 partyMonk = False
 
@@ -21,21 +21,21 @@ lives = 5
 while(lives > 0):
 
     playerChoiceOne = input(characterName + " comes to a fork in the road. Choose left or right: ")
-    playerChoiceOne = stripWhiteSpace(playerChoiceOne)
-    if(playerChoiceOne.lower() == "left"):
+    playerChoiceOne = formatAnswerString(playerChoiceOne)
+    if(playerChoiceOne == "left"):
         print("")
         print(characterName + " has died")
         print("⎧ᴿᴵᴾ⎫◟◟◟◟◟◟◟◟ ❀◟(ó ̯ ò, )")
         print("")
         lives -= 1
         print("remaining lives: "+ str(lives))
-    elif(playerChoiceOne.lower() == "right"):
+    elif(playerChoiceOne == "right"):
     
         invalidinput = True
         while(invalidinput):
             playerChoiceTwo = input("You see a chest on the side of the path. Do you open it? ")
-            playerChoiceTwo = stripWhiteSpace(playerChoiceTwo)
-            if(playerChoiceTwo.lower() == "yes" or playerChoiceTwo.lower() == "yeah" or playerChoiceTwo.lower() == "y"):
+            playerChoiceTwo = formatAnswerString(playerChoiceTwo)
+            if(playerChoiceTwo == "yes" or playerChoiceTwo == "yeah" or playerChoiceTwo == "y"):
                 print("The chest is full of fangs that bite down on your arm, servering it. You bleed to death!")
                 print("")
                 print(characterName + " has died")
@@ -44,17 +44,17 @@ while(lives > 0):
                 lives -= 1
                 print("remaining lives: "+ str(lives))
                 invalidinput = False
-            elif(playerChoiceTwo.lower() == "no" or playerChoiceTwo.lower() == "nope" or playerChoiceTwo.lower() == "n"):
+            elif(playerChoiceTwo == "no" or playerChoiceTwo == "nope" or playerChoiceTwo == "n"):
                 print(characterName + " noticed that the chest is a mimic and would have eaten you. Great job! You keep walking down the path ")
                 invalidinput = True
                 while(invalidinput):
                     playerChoiceThree = input("You see an old monk waiting by the side of the road. He asks if he can come with you. Do you accept? Yes or no? ")
-                    playerChoiceThree = stripWhiteSpace(playerChoiceThree)
-                    if(playerChoiceThree.lower() == "yes" or playerChoiceThree.lower() == "yeah" or playerChoiceThree.lower() == "y"):
+                    playerChoiceThree = formatAnswerString(playerChoiceThree)
+                    if(playerChoiceThree == "yes" or playerChoiceThree == "yeah" or playerChoiceThree == "y"):
                         print("The monk thanks you for your kindness and follows you down the road")
                         partyMonk = True
                         invalidinput = False
-                    elif(playerChoiceThree.lower() == "no" or playerChoiceThree.lower() == "nope" or playerChoiceThree.lower() == "n"):
+                    elif(playerChoiceThree == "no" or playerChoiceThree == "nope" or playerChoiceThree == "n"):
                         print("The monk warns you that it's dangerous to go alone but you as you continue to walk he is quickly out of sight")
                         invalidinput = False
                     else:
