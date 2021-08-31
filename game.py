@@ -1,16 +1,29 @@
 gameTitle = "◥(ฅº￦ºฅ)◤        Spooky.Game        ⊂(•̀﹏•́⊂ )∘˚˳°"
-print("=========================================================")
-print("")
-print(gameTitle)
-print("")
-print("=========================================================")
+def showTitle():
+    print("=========================================================")
+    print("")
+    print(gameTitle)
+    print("")
+    print("=========================================================")
 
 
 def formatAnswerString(inputString):
     outputString = inputString.strip()
     return outputString.lower()
 
+def deathScreen(remainingLives):
+    print("")
+    print(characterName + " has died")
+    print("⎧ᴿᴵᴾ⎫◟◟◟◟◟◟◟◟ ❀◟(ó ̯ ò, )")
+    print("")
+    remainingLives -= 1
+    print("remaining lives: "+ str(remainingLives))
+    return remainingLives
+
 partyMonk = False
+
+# Game Starts Here
+showTitle()
 
 characterName = ""
 characterName = input("choose a character name: ")
@@ -23,12 +36,7 @@ while(lives > 0):
     playerChoiceOne = input(characterName + " comes to a fork in the road. Choose left or right: ")
     playerChoiceOne = formatAnswerString(playerChoiceOne)
     if(playerChoiceOne == "left"):
-        print("")
-        print(characterName + " has died")
-        print("⎧ᴿᴵᴾ⎫◟◟◟◟◟◟◟◟ ❀◟(ó ̯ ò, )")
-        print("")
-        lives -= 1
-        print("remaining lives: "+ str(lives))
+        lives = deathScreen(lives)
     elif(playerChoiceOne == "right"):
     
         invalidinput = True
@@ -37,12 +45,7 @@ while(lives > 0):
             playerChoiceTwo = formatAnswerString(playerChoiceTwo)
             if(playerChoiceTwo == "yes" or playerChoiceTwo == "yeah" or playerChoiceTwo == "y"):
                 print("The chest is full of fangs that bite down on your arm, servering it. You bleed to death!")
-                print("")
-                print(characterName + " has died")
-                print("⎧ᴿᴵᴾ⎫◟◟◟◟◟◟◟◟ ❀◟(ó ̯ ò, )")
-                print("")
-                lives -= 1
-                print("remaining lives: "+ str(lives))
+                lives = deathScreen(lives)
                 invalidinput = False
             elif(playerChoiceTwo == "no" or playerChoiceTwo == "nope" or playerChoiceTwo == "n"):
                 print(characterName + " noticed that the chest is a mimic and would have eaten you. Great job! You keep walking down the path ")
